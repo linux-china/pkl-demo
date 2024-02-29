@@ -13,3 +13,4 @@ Pkl(pickle): a configuration as code language with rich validation and tooling.
 # References
 
 * Pkl Home: https://pkl-lang.org/
+* CUE: Validate, define, and use dynamic and text-based data https://cuelang.org/
