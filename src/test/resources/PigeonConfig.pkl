@@ -1,0 +1,6 @@
+pigeon = Pigeon
+
+class Pigeon {
+  name: String
+  age: UInt16
+}
