@@ -4,26 +4,46 @@ import org.junit.jupiter.api.Test;
 import org.pkl.core.*;
 
 import java.io.StringWriter;
-import java.util.List;
 
 public class PklTest {
 
     @Test
     public void testExportToJson() {
-        PModule module = parseModule();
+        PModule module = parseModule("pigeon { age = 2; name = \"surfing\" }");
         var pigeon = (PObject) module.get("pigeon");
-        var hobbies = (List<String>) pigeon.get("hobbies");
         StringWriter output = new StringWriter();
         ValueRenderer render = ValueRenderers.json(output, "  ", true);
         render.renderDocument(module);
         System.out.println(output);
     }
 
-    public PModule parseModule() {
+    @Test
+    public void testValidate() {
+        PModule module = parseModule("pigeon { age = 30; name = \"surfing\" }");
+        String schemaText = """
+                pigeon = Pigeon
+                class Pigeon {
+                  name: String
+                  age: UInt16
+                }
+                """;
+        ModuleSchema schema = parseSchema(schemaText);
+    }
+
+    public ModuleSchema parseSchema(String schemaText) {
+        ModuleSchema schema;
+        try (var evaluator = Evaluator.preconfigured()) {
+            schema = evaluator.evaluateSchema(
+                    ModuleSource.text(schemaText));
+        }
+        return schema;
+    }
+
+    public PModule parseModule(String configuration) {
         PModule module;
         try (var evaluator = Evaluator.preconfigured()) {
             module = evaluator.evaluate(
-                    ModuleSource.text("pigeon { age = 30; hobbies = List(\"swimming\", \"surfing\") }"));
+                    ModuleSource.text(configuration));
         }
         return module;
     }
