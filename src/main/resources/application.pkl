@@ -1,0 +1,6 @@
+name = "Jackie"
+spring {
+   application {
+      name = "pkl-demo"
+   }
+}
