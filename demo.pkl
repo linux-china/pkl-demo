@@ -1,9 +1,24 @@
+import "pkl:json"
+import "pkl:math"
+import "pkl:semver"
+
 class Language {
   id: UInt16
   name: String
+  type: json.Value
 }
 
 language: Language = new {
   id = 16 + 2
   name = "zh-CN"
+  type = "Number"
 }
+
+version = semver.Version("1.2.3")
+expired_years = math.max(1, 2)
+
+bird = "Dodo"
+message = """
+  Although the \(bird) is extinct,
+  the species will be remembered.
+  """
