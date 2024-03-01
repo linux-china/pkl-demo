@@ -2,6 +2,7 @@ package org.mvnsearch;
 
 import org.junit.jupiter.api.Test;
 import org.mvnsearch.config.AppConfig;
+import org.pkl.config.java.Config;
 import org.pkl.config.java.ConfigEvaluator;
 import org.pkl.core.*;
 
@@ -35,11 +36,12 @@ public class PklTest {
     @Test
     public void testConfig() {
         ModuleSource moduleSource = ModuleSource.text("pigeon { age = 30; name = \"surfing\" }");
-        var evaluator = ConfigEvaluator.preconfigured();
-        var config = evaluator.evaluate(moduleSource);
-        var appConfig = config.as(AppConfig.class);
-        PObject pigeon =(PObject) appConfig.getPigeon();
-        System.out.println(pigeon.getProperty("age"));
+        Config config;
+        try (var evaluator = ConfigEvaluator.preconfigured()) {
+            config = evaluator.evaluate(moduleSource);
+        }
+        var pigeon = config.get("pigeon").as(AppConfig.Pigeon.class);
+        System.out.println(pigeon.getAge());
     }
 
     public ModuleSchema parseSchema(String schemaText) {
