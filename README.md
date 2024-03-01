@@ -38,4 +38,6 @@ or execute `jbang pkl-cli` or `jbang pkl-codegen` with `jbang-catalog.json`.
 * Pkl Home: https://pkl-lang.org/
 * Pkl IntelliJ Plugin: https://github.com/apple/pkl-intellij/
 * Pkl with Spring Boot: https://pkl-lang.org/spring/current/usage.html
+* pkl-pantry： https://github.com/apple/pkl-pantry
+* pkl-k8s: https://github.com/apple/pkl-k8s
 * CUE: Validate, define, and use dynamic and text-based data https://cuelang.org/
