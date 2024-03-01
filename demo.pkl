@@ -1,7 +1,9 @@
 class Language {
+  id: UInt16
   name: String
 }
 
 language: Language = new {
-   name = "zh-CN"
+  id = 16 + 2
+  name = "zh-CN"
 }
