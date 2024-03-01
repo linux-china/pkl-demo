@@ -17,8 +17,37 @@ language: Language = new {
 version = semver.Version("1.2.3")
 expired_years = math.max(1, 2)
 
+hidden rate = 7.2
+total = 100 * rate
 bird = "Dodo"
 message = """
   Although the \(bird) is extinct,
   the species will be remembered.
   """
+
+eggIncubation: Duration = 5.min + 3.s
+weight: DataSize(isBetween(1.gb, 7.gb)) = 5.gb
+
+endpints =  List(5.gb, 6.gb)
+
+birds = new Mapping {
+  ["Pigeon"] {
+    lifespan = 8
+    diet = "Seeds"
+  }
+  ["Parrot"] {
+    lifespan = 20
+    diet = "Berries"
+  }
+}
+
+output {
+  renderer = new JsonRenderer {
+    converters {
+      [Duration] = (size) -> "\(size.value) \(size.unit)"
+      [DataSize] = (size) -> "\(size.value) \(size.unit)"
+    }
+  }
+}
+
+
