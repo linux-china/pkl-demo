@@ -1,0 +1,7 @@
+class Language {
+  name: String
+}
+
+language: Language = new {
+   name = "zh-CN"
+}
