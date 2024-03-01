@@ -10,6 +10,16 @@ Pkl(pickle): a configuration as code language with rich validation and tooling.
 * Incredible IDE Integration
 * Catch errors before deployment
 
+# Constraints
+
+For more, please refer: https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html
+
+```
+name: String(length.isOdd, chars.first == chars.last)
+zipCode: String(matches(Regex("\\d{5}")))
+serverPort: UInt16(isBetween(0, 1023))
+```
+
 # Java code generate
 
 Execute `mvn exec:java` or `mvn compile` to generate the Java code from pkl.
