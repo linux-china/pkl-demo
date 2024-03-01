@@ -18,4 +18,5 @@ Execute `mvn exec:java` or `mvn compile` to generate the Java code from pkl.
 
 * Pkl Home: https://pkl-lang.org/
 * Pkl IntelliJ Plugin: https://github.com/apple/pkl-intellij/
+* Pkl with Spring Boot: https://pkl-lang.org/spring/current/usage.html
 * CUE: Validate, define, and use dynamic and text-based data https://cuelang.org/
