@@ -93,18 +93,8 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.pkl-lang</groupId>
-                        <artifactId>pkl-cli-java</artifactId>
+                        <artifactId>pkl-tools</artifactId>
                         <version>${pkl.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.pkl-lang</groupId>
-                        <artifactId>pkl-codegen-java</artifactId>
-                        <version>${pkl.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.squareup</groupId>
-                        <artifactId>javapoet</artifactId>
-                        <version>1.13.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
