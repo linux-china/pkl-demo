@@ -45,21 +45,58 @@
             <version>${pkl.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.pkl-lang</groupId>
-            <artifactId>pkl-codegen-java</artifactId>
-            <version>${pkl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.pkl-lang</groupId>
-            <artifactId>pkl-executor</artifactId>
-            <version>${pkl.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- generate java code from pkl -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>org.pkl.codegen.java.Main</mainClass>
+                    <arguments>
+                        <argument>-o</argument>
+                        <argument>src/main</argument>
+                        <argument>--generate-getters</argument>
+                        <argument>src/main/resources/PigeonConfig.pkl</argument>
+                    </arguments>
+                    <includePluginDependencies>true</includePluginDependencies>
+                    <includeProjectDependencies>false</includeProjectDependencies>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pkl-lang</groupId>
+                        <artifactId>pkl-cli-java</artifactId>
+                        <version>${pkl.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.pkl-lang</groupId>
+                        <artifactId>pkl-codegen-java</artifactId>
+                        <version>${pkl.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.squareup</groupId>
+                        <artifactId>javapoet</artifactId>
+                        <version>1.13.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
