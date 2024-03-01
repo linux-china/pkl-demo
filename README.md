@@ -10,6 +10,10 @@ Pkl(pickle): a configuration as code language with rich validation and tooling.
 * Incredible IDE Integration
 * Catch errors before deployment
 
+# Java code generate
+
+Execute `mvn exec:java` or `mvn compile` to generate the Java code from pkl.
+
 # References
 
 * Pkl Home: https://pkl-lang.org/
