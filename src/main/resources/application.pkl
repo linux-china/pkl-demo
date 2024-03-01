@@ -1,6 +1,13 @@
+import "PigeonConfig.pkl"
+
 name = "Jackie"
 spring {
-   application {
-      name = "pkl-demo"
-   }
+  application {
+    name = "pkl-demo"
+  }
+}
+
+pigeon: PigeonConfig.Pigeon = new {
+  name = "Hello"
+  age = 2
 }
