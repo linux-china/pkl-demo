@@ -22,7 +22,7 @@ public class PklTest {
 
     @Test
     public void testValidate() {
-        PModule module = parseModule("pigeon { age = 30; name = \"surfing\" }");
+        String moduleText = "pigeon { age = 30; name = \"surfing\" }";
         String schemaText = """
                 pigeon = Pigeon
                 class Pigeon {
@@ -30,7 +30,10 @@ public class PklTest {
                   age: UInt16
                 }
                 """;
-        ModuleSchema schema = parseSchema(schemaText);
+        try (var evaluator = Evaluator.preconfigured()) {
+            var schema = evaluator.evaluateSchema(ModuleSource.text(schemaText));
+            var module = evaluator.evaluate(ModuleSource.text(moduleText));
+        }
     }
 
     @Test
