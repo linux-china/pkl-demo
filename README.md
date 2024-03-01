@@ -18,6 +18,7 @@ For more, please refer: https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.
 name: String(length.isOdd, chars.first == chars.last)
 zipCode: String(matches(Regex("\\d{5}")))
 serverPort: UInt16(isBetween(0, 1023))
+port: Int(this > 1000) = 80
 ```
 
 # Java code generate
