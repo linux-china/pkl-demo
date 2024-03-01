@@ -1,10 +1,10 @@
 {
   "aliases": {
-    "cli": {
+    "pkl-cli": {
       "script-ref": "org.pkl-lang:pkl-tools:0.25.2",
       "main": "org.pkl.cli.Main"
     },
-    "codegen": {
+    "pkl-codegen": {
       "script-ref": "org.pkl-lang:pkl-tools:0.25.2",
       "main": "org.pkl.codegen.java.Main"
     }
