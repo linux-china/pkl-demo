@@ -7,7 +7,9 @@ import java.lang.StringBuilder;
 import java.util.Objects;
 import org.pkl.config.java.mapper.Named;
 import org.pkl.config.java.mapper.NonNull;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
+@ConfigurationProperties
 public final class AppConfig {
   private final @NonNull Object pigeon;
 
@@ -58,6 +60,7 @@ public final class AppConfig {
     }
   }
 
+  @ConfigurationProperties
   public static final class Pigeon {
     private final @NonNull String name;
 
