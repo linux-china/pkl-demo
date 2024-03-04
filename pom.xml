@@ -85,6 +85,7 @@
                         <argument>-o</argument>
                         <argument>src/main</argument>
                         <argument>--generate-getters</argument>
+                        <argument>--generate-spring-boot</argument>
                         <argument>src/main/resources/PigeonConfig.pkl</argument>
                     </arguments>
                     <includePluginDependencies>true</includePluginDependencies>
