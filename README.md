@@ -1,7 +1,7 @@
 Pkl demo
 ================
 
-Pkl(pickle): a configuration as code language with rich validation and tooling.
+Pkl(pickle): a configuration as a code language with rich validation and tooling.
 
 # Features
 
@@ -10,7 +10,7 @@ Pkl(pickle): a configuration as code language with rich validation and tooling.
 * Incredible IDE Integration
 * Catch errors before deployment
 
-# How to write configuration item?
+# How to write a configuration item?
 
 ```
 name: Type(constraint1, constraint2) = value | expression
@@ -30,8 +30,7 @@ serverPort: UInt16(isBetween(0, 1023))
 port: Int(this > 1000) = 80
 ```
 
-更多的constraint函数，请访问: https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html
-
+更多的constraint函数，请访问: https://pkl-lang.org/package-docs/pkl/0.32.0/base/index.html
 
 # Java code generate
 
@@ -40,7 +39,7 @@ Execute `mvn exec:java` or `mvn compile` to generate the Java code from pkl.
 If you use [JBang](https://www.jbang.dev/) you can run the following command to generate the Java code from pkl.
 
 ```shell
-jbang run --main org.pkl.codegen.java.Main "org.pkl-lang:pkl-tools:0.25.2" --help
+jbang run --main org.pkl.codegen.java.Main "org.pkl-lang:pkl-tools:0.32.0" --help
 ```
 
 or execute `jbang pkl-cli` or `jbang pkl-codegen` with `jbang-catalog.json`.
